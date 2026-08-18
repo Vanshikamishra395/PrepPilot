@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Assistant - PrepPilot</title>
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/navbar.css" />
+<link rel="stylesheet" href="css/chatbot.css" />
+</head>
+<body>
+
+<div id="navbar-placeholder"></div>
+
+<main class="chatbot-page container">
+  <div class="chatbot-header">
+    <h1>AI Placement Assistant</h1>
+    <p>Ask about coding, aptitude, interviews, or what to study next — I know your progress.</p>
+  </div>
+
+  <div class="suggested-prompts" id="suggested-prompts">
+    <button class="suggested-prompt" data-prompt="What should I study next based on my progress?">What should I study next?</button>
+    <button class="suggested-prompt" data-prompt="Can you explain normalization in DBMS?">Explain DBMS normalization</button>
+    <button class="suggested-prompt" data-prompt="How do I answer 'Tell me about yourself' in an HR interview?">HR: Tell me about yourself</button>
+    <button class="suggested-prompt" data-prompt="Give me tips for solving array-based coding problems.">Array coding tips</button>
+  </div>
+
+  <div class="chat-window" id="chat-window"></div>
+
+  <form class="chat-input-bar" id="chat-form">
+    <input type="text" id="chat-input" placeholder="Ask PrepPilot AI anything about your preparation..." autocomplete="off" />
+    <button type="submit" class="btn btn-primary" id="send-btn">Send</button>
+  </form>
+</main>
+
+<script src="js/api.js"></script>
+<script src="js/toast.js"></script>
+<script src="js/navbar.js"></script>
+<script src="js/chatbot.js"></script>
+</body>
+</html>

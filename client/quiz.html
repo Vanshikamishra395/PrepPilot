@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skill Assessment - PrepPilot</title>
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/navbar.css" />
+<link rel="stylesheet" href="css/quiz.css" />
+</head>
+<body>
+
+<div id="navbar-placeholder"></div>
+
+<main class="quiz-page container">
+
+  <!-- Level selection screen -->
+  <div id="level-select-screen">
+    <div class="page-header" style="padding-top:0;">
+      <h1>Skill Assessment</h1>
+      <p>Two-level assessment to measure where you currently stand.</p>
+    </div>
+    <div class="level-select-grid">
+      <div class="card level-card">
+        <h2>Level 1</h2>
+        <p>10 questions covering programming fundamentals, DSA, DBMS, OS, CN, and aptitude.</p>
+        <button class="btn btn-primary" id="start-level1-btn">Start Level 1</button>
+      </div>
+      <div class="card level-card">
+        <h2>Level 2</h2>
+        <p>10 advanced questions on DSA, SQL, OOPs, OS/CN, and problem solving.</p>
+        <button class="btn btn-primary" id="start-level2-btn">Start Level 2</button>
+        <p class="locked-note hidden" id="level2-locked-note">Complete Level 1 first to unlock.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Active quiz screen -->
+  <div id="quiz-runner-screen" class="quiz-runner hidden">
+    <div class="quiz-topbar">
+      <span class="question-counter" id="question-counter"></span>
+      <span class="quiz-timer" id="quiz-timer"></span>
+    </div>
+
+    <div class="card quiz-question-card">
+      <p class="quiz-question-text" id="quiz-question-text"></p>
+      <div id="quiz-options"></div>
+    </div>
+
+    <div class="question-jump" id="question-jump"></div>
+
+    <div class="quiz-nav-bar">
+      <button class="btn btn-outline" id="prev-btn">Previous</button>
+      <button class="btn btn-primary" id="next-btn">Next</button>
+      <button class="btn btn-primary hidden" id="submit-quiz-btn">Submit</button>
+    </div>
+  </div>
+
+  <!-- Results screen -->
+  <div id="results-screen" class="hidden">
+    <div class="card results-summary">
+      <p>Your Score</p>
+      <div class="results-score" id="results-score"></div>
+      <p class="results-percentage" id="results-percentage"></p>
+      <span class="skill-badge" id="results-skill-badge"></span>
+
+      <div class="topic-breakdown">
+        <p class="section-title">Topic-wise Performance</p>
+        <div id="topic-breakdown-list"></div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin: 20px 0;">
+      <button class="btn btn-outline" id="back-to-levels-btn">Back to Assessments</button>
+      <a href="dashboard.html" class="btn btn-primary">Go to Dashboard</a>
+    </div>
+
+    <div id="review-list"></div>
+  </div>
+
+</main>
+
+<script src="js/api.js"></script>
+<script src="js/toast.js"></script>
+<script src="js/navbar.js"></script>
+<script src="js/quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Technical Interview Prep - PrepPilot</title>
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/navbar.css" />
+<link rel="stylesheet" href="css/interview.css" />
+</head>
+<body>
+
+<div id="navbar-placeholder"></div>
+
+<main class="container">
+  <div class="page-header">
+    <h1>Technical Interview Preparation</h1>
+    <p>Core concepts and commonly asked technical interview questions.</p>
+  </div>
+
+  <div class="topic-tabs" id="topic-tabs">
+    <button class="topic-tab active" data-topic="">All Topics</button>
+    <button class="topic-tab" data-topic="OOPs">OOPs</button>
+    <button class="topic-tab" data-topic="DBMS">DBMS</button>
+    <button class="topic-tab" data-topic="SQL">SQL</button>
+    <button class="topic-tab" data-topic="OS">Operating Systems</button>
+    <button class="topic-tab" data-topic="CN">Computer Networks</button>
+    <button class="topic-tab" data-topic="DSA">DSA</button>
+    <button class="topic-tab" data-topic="Java">Java</button>
+    <button class="topic-tab" data-topic="JavaScript">JavaScript</button>
+    <button class="topic-tab" data-topic="System Design">System Design</button>
+  </div>
+
+  <div class="resource-list" id="resource-list">
+    <p class="empty-state">Loading resources...</p>
+  </div>
+</main>
+
+<script src="js/api.js"></script>
+<script src="js/toast.js"></script>
+<script src="js/navbar.js"></script>
+<script>const INTERVIEW_TYPE = "technical";</script>
+<script src="js/technical.js"></script>
+</body>
+</html>

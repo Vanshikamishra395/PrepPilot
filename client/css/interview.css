@@ -1,0 +1,82 @@
+/* css/interview.css */
+.topic-tabs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.topic-tab {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--color-text-muted);
+}
+
+.topic-tab.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+.resource-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 50px;
+}
+
+.resource-item {
+  padding: 0;
+  overflow: hidden;
+}
+
+.resource-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  cursor: pointer;
+}
+
+.resource-question {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.resource-meta {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+}
+
+.resource-answer {
+  padding: 0 20px 18px;
+  font-size: 14px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  display: none;
+}
+
+.resource-item.expanded .resource-answer {
+  display: block;
+}
+
+.practiced-check {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.practiced-check input {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}

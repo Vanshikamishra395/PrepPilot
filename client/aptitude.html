@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aptitude Practice - PrepPilot</title>
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/navbar.css" />
+<link rel="stylesheet" href="css/aptitude.css" />
+</head>
+<body>
+
+<div id="navbar-placeholder"></div>
+
+<main class="container">
+  <div class="page-header">
+    <h1>Aptitude Practice</h1>
+    <p>Pick a category and sharpen your quantitative, logical, verbal, and DI skills.</p>
+  </div>
+
+  <div class="category-tabs" id="category-tabs">
+    <button class="category-tab active" data-category="Quantitative">Quantitative</button>
+    <button class="category-tab" data-category="Logical">Logical Reasoning</button>
+    <button class="category-tab" data-category="Verbal">Verbal Ability</button>
+    <button class="category-tab" data-category="DataInterpretation">Data Interpretation</button>
+  </div>
+
+  <div id="quiz-area">
+    <p class="empty-state" style="text-align:center;">Loading questions...</p>
+  </div>
+</main>
+
+<script src="js/api.js"></script>
+<script src="js/toast.js"></script>
+<script src="js/navbar.js"></script>
+<script src="js/aptitude.js"></script>
+</body>
+</html>

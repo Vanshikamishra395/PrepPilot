@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dashboard - PrepPilot</title>
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/navbar.css" />
+<link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+
+<div id="navbar-placeholder"></div>
+
+<main class="dashboard-page container">
+  <div class="dashboard-header">
+    <h1 id="welcome-heading">Welcome back</h1>
+    <p>Here's where your placement preparation stands today.</p>
+  </div>
+
+  <section class="dashboard-grid" id="progress-cards">
+    <!-- Progress cards injected by dashboard.js -->
+  </section>
+
+  <section class="dashboard-columns">
+    <div class="card skill-card">
+      <p class="section-title">Skill Assessment</p>
+      <div id="skill-badge-wrapper"></div>
+      <p id="skill-summary" class="empty-state"></p>
+      <a href="quiz.html" class="btn btn-primary" id="assessment-cta">Take Skill Assessment</a>
+    </div>
+
+    <div class="card">
+      <p class="section-title">What should you study next?</p>
+      <ul class="recommendation-list" id="recommendation-list">
+        <li class="empty-state">Complete your skill assessment to get personalized recommendations.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<script src="js/api.js"></script>
+<script src="js/toast.js"></script>
+<script src="js/navbar.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Search - PrepPilot</title>
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/navbar.css" />
+<link rel="stylesheet" href="css/search.css" />
+</head>
+<body>
+
+<div id="navbar-placeholder"></div>
+
+<main class="container">
+  <div class="search-hero">
+    <h1>Search PrepPilot</h1>
+    <p style="color: var(--color-text-muted); font-size: 14px;">Search across coding problems, aptitude questions, and interview resources.</p>
+  </div>
+
+  <form class="search-input-wrap" id="search-form">
+    <input type="text" id="search-query" placeholder="Search for a topic, problem, or question..." />
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+
+  <div id="search-results">
+    <p class="empty-state">Enter a search term above to get started.</p>
+  </div>
+</main>
+
+<script src="js/api.js"></script>
+<script src="js/navbar.js"></script>
+<script src="js/toast.js"></script>
+<script src="js/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Coding Practice - PrepPilot</title>
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/navbar.css" />
+<link rel="stylesheet" href="css/coding.css" />
+</head>
+<body>
+
+<div id="navbar-placeholder"></div>
+
+<main class="container">
+  <div class="page-header">
+    <h1>Coding Practice</h1>
+    <p>Solve problems across topics and track what you've completed.</p>
+  </div>
+
+  <div class="filters-bar">
+    <input type="text" id="search-input" placeholder="Search problems by title..." />
+    <select id="topic-filter">
+      <option value="">All Topics</option>
+      <option value="Arrays">Arrays</option>
+      <option value="Strings">Strings</option>
+      <option value="Two Pointers">Two Pointers</option>
+      <option value="Sliding Window">Sliding Window</option>
+      <option value="Hashing">Hashing</option>
+      <option value="Linked List">Linked List</option>
+      <option value="Stack">Stack</option>
+      <option value="Queue">Queue</option>
+      <option value="Binary Search">Binary Search</option>
+      <option value="Trees">Trees</option>
+      <option value="Graphs">Graphs</option>
+      <option value="Dynamic Programming">Dynamic Programming</option>
+    </select>
+    <select id="difficulty-filter">
+      <option value="">All Difficulties</option>
+      <option value="Easy">Easy</option>
+      <option value="Medium">Medium</option>
+      <option value="Hard">Hard</option>
+    </select>
+  </div>
+
+  <div class="problem-list" id="problem-list">
+    <p class="empty-state">Loading problems...</p>
+  </div>
+</main>
+
+<script src="js/api.js"></script>
+<script src="js/toast.js"></script>
+<script src="js/navbar.js"></script>
+<script src="js/coding.js"></script>
+</body>
+</html>
