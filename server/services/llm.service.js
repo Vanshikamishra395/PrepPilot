@@ -1,17 +1,12 @@
 // services/llm.service.js
 // The only file in the whole app that talks to the LLM API.
-// The API key lives in process.env (loaded from .env) and never
-// leaves the backend — the frontend only ever calls our own
-// POST /api/chat endpoint.
+// The API key lives in process.env and never leaves the backend.
 
 const env = require("../config/env");
 
-const ANTHROPIC_VERSION = "2023-06-01";
 const MAX_TOKENS = 1000;
 
-// Builds a system prompt personalized to this specific user, using
-// data already fetched from MySQL (skill level, weak topics, progress).
-// This is what makes the chatbot's answers "aware" of the user.
+// Builds a system prompt personalized to this specific user.
 function buildSystemPrompt({ userName, skillLevel, weakTopics, progress }) {
   const weakTopicsText =
     weakTopics && weakTopics.length > 0
@@ -34,49 +29,62 @@ Guidelines:
 }
 
 /**
- * Sends a message to the LLM and returns the assistant's reply text.
- * @param {string} userMessage
- * @param {object} userContext - { userName, skillLevel, weakTopics, progress }
- * @param {Array<{role: 'user'|'assistant', content: string}>} history - prior turns, oldest first
+ * Sends a message to Gemini and returns the assistant's reply text.
  */
 async function getChatResponse(userMessage, userContext, history = []) {
-  if (!env.LLM_API_KEY) {
-    throw new Error("LLM_API_KEY is not configured on the server.");
+  if (!env.GEMINI_API_KEY) {
+    throw new Error("GEMINI_API_KEY is not configured on the server.");
   }
 
   const systemPrompt = buildSystemPrompt(userContext);
 
-  const messages = [
-    ...history.map((h) => ({ role: h.role, content: h.content })),
-    { role: "user", content: userMessage },
+  const contents = [
+    ...history.map((h) => ({
+      role: h.role === "assistant" ? "model" : "user",
+      parts: [{ text: h.content }],
+    })),
+    {
+      role: "user",
+      parts: [{ text: userMessage }],
+    },
   ];
 
   const response = await fetch(env.LLM_API_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "x-api-key": env.LLM_API_KEY,
-      "anthropic-version": ANTHROPIC_VERSION,
+      "x-goog-api-key": env.GEMINI_API_KEY,
     },
     body: JSON.stringify({
-      model: env.LLM_MODEL,
-      max_tokens: MAX_TOKENS,
-      system: systemPrompt,
-      messages,
+      systemInstruction: {
+        parts: [{ text: systemPrompt }],
+      },
+      contents,
+      generationConfig: {
+        maxOutputTokens: MAX_TOKENS,
+      },
     }),
   });
 
   if (!response.ok) {
     const errText = await response.text();
-    throw new Error(`LLM API request failed (${response.status}): ${errText}`);
+
+    throw new Error(
+      `Gemini API request failed (${response.status}): ${errText}`
+    );
   }
 
   const data = await response.json();
 
-  // The Messages API returns content as an array of blocks; we only
-  // expect plain text blocks here.
-  const textBlock = data.content.find((block) => block.type === "text");
-  return textBlock ? textBlock.text : "I couldn't generate a response. Please try again.";
+  const text =
+    data.candidates?.[0]?.content?.parts
+      ?.map((part) => part.text || "")
+      .join("") || "";
+
+  return text || "I couldn't generate a response. Please try again.";
 }
 
-module.exports = { getChatResponse, buildSystemPrompt };
+module.exports = {
+  getChatResponse,
+  buildSystemPrompt,
+};
