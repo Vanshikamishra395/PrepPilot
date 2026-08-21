@@ -1,5 +1,7 @@
 # PrepPilot – Placement Preparation Platform
 
+🚀 **Live Demo:** https://preppilot-l048.onrender.com
+
 A centralized placement preparation platform where students can practice coding, aptitude, and interview questions, take a two-level skill assessment, track their progress, and get AI-powered, personalized guidance.
 
 **Tech Stack:** HTML5 + CSS3 + Vanilla JavaScript (frontend) · Node.js + Express.js (backend) · MySQL (database) · JWT auth · Anthropic LLM API (chatbot)
