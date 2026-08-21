@@ -4,7 +4,7 @@
 
 A centralized placement preparation platform where students can practice coding, aptitude, and interview questions, take a two-level skill assessment, track their progress, and get AI-powered, personalized guidance.
 
-**Tech Stack:** HTML5 + CSS3 + Vanilla JavaScript (frontend) · Node.js + Express.js (backend) · MySQL (database) · JWT auth · Anthropic LLM API (chatbot)
+**Tech Stack:** HTML5 + CSS3 + Vanilla JavaScript (frontend) · Node.js + Express.js (backend) · MySQL (database) · JWT auth · Google Gemini API (AI Assistant)
 
 No React, no MongoDB, no build tooling — deliberately kept simple and explainable.
 
@@ -46,7 +46,7 @@ preppilot/
 
 - Node.js 18 or later
 - MySQL 8.0 (or compatible)
-- An Anthropic API key (only needed for the AI Assistant feature — everything else works without it)
+- - A Google Gemini API key (only needed for the AI Assistant feature — everything else works without it)
 
 ---
 
